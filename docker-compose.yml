@@ -1,0 +1,13 @@
+services:
+  language-assessment:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - DATA_DIR=/data
+    ports:
+      - "3000:3000"
+    volumes:
+      - assessment-data:/data
+volumes:
+  assessment-data:
